@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 514165ac7d6b9df419b3131bb744793d
+timeCreated: 1519132215
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - doggo: {fileID: 1639180436911198, guid: a5bdbf0fc3abba54abafec02b5379055, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
