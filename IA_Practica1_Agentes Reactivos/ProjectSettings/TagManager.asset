@@ -17,6 +17,7 @@ TagManager:
   - EscenarioCompleto
   - Puntuacion
   - Juego
+  - ezquinaFea
   layers:
   - Default
   - TransparentFX
