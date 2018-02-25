@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 1
-  vel_mov: 2
+  vel_mov: 1
   boxMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -195,6 +195,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  banMigajas: 0
 --- !u!212 &212312584260911160
 SpriteRenderer:
   m_ObjectHideFlags: 1

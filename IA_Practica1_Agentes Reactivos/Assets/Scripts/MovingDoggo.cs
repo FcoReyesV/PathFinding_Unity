@@ -19,34 +19,33 @@ public class MovingDoggo : MonoBehaviour {
 
     public IEnumerator movDerecha()
     {
-        Debug.Log("Entro aqui der xdd");
-        anim.SetBool("RightMov",true);   
+        Debug.Log("Der");
+        anim.SetTrigger("MovDer");   
         Doggo.transform.Translate(1, 0, 0);
-
         yield return new WaitForSeconds(1.5f);
     
-        anim.SetBool("RightMov", false);
+        
     }
 
     public IEnumerator movIzquierda()
     {
-        Debug.Log("Entro aqui izq xdd");
-       
-        anim.SetBool("LeftMov", true);
+        Debug.Log("Izq");
+
+        anim.SetTrigger("MovIzq");
         Doggo.transform.Translate(-1, 0, 0);
         yield return new WaitForSeconds(1.5f);
-        anim.SetBool("LeftMov", false);
+        
     }
     public IEnumerator movAbajo()
      {
-        Debug.Log("Entro aqui abajo xdd");
-       
-        anim.SetBool("DownMov", true);
-        
+        Debug.Log("Abajo");
+
+        anim.SetTrigger("MovAbajo");
+
 
         Doggo.transform.Translate(0, -1, 0);
         yield return new WaitForSeconds(1.5f);
-        anim.SetBool("DownMov", false);
+        
 
     }
 
@@ -54,13 +53,13 @@ public class MovingDoggo : MonoBehaviour {
      
      public IEnumerator movArriba()
      {
-        Debug.Log("Entro aqui arriba xdd");
-       
-        anim.SetBool("UpMov", true);
+        Debug.Log("Arriba");
+
+        anim.SetTrigger("MovArriba");
         Doggo.transform.Translate(0, 1 , 0);
   
         yield return new WaitForSeconds(1.5f);
-        anim.SetBool("UpMov", false);
+       
     }
 
 
