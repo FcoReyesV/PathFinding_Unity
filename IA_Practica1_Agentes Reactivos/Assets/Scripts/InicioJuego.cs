@@ -15,7 +15,9 @@ public class InicioJuego : MonoBehaviour
     public int x_p = 0, y_p, x_o, y_o;
     public string[,] tagesitos = new string[8, 10];
     public GameObject[] ch = new GameObject[80];
-
+    public int banMigajas = 0;// en 0 sigue mijagas y no tiene carga
+                              // en 1 tiene carga y sigue migajas de regreso a la nave
+                              // en 2 no tiene carga pero va de regreso de la nave a donde encontro huesos
 
     private void Awake()
     {
@@ -140,7 +142,6 @@ public class InicioJuego : MonoBehaviour
                 {//arriba
 
                     StartCoroutine(md.movArriba());
-                    
                     cam_alty = cam_alty - 1;
                     Debug.Log("posicion x despues de subir: " + cam_altx);
                     Debug.Log("posicion y despues de subir: " + cam_alty);
@@ -177,7 +178,73 @@ public class InicioJuego : MonoBehaviour
             x_p = 9; y_p = 0;
             EventStGame.instance.Huesos_Agregados();
         }
+        else if(moves[n].collider != null && (moves[n].collider.gameObject.tag == "CajaPuesta1" || moves[n].collider.gameObject.tag == "CajaPuesta2"|| moves[n].collider.gameObject.tag == "Limites"))
+        {
+            int brandom;
+            do
+            {
+                brandom = (int)Random.Range(1.0f, 5.0f);
+                if (brandom != n)
+                {
+                    if (brandom == 1)//arriba
+                    {
+                        StartCoroutine(movimientos(1));
+                        yield return new WaitForSeconds(vel_mov);
+                    }
+                    else if (brandom == 2)//abajo
+                    {
+                        StartCoroutine(movimientos(2));
+                        yield return new WaitForSeconds(vel_mov);
+                    }
+                    else if (brandom == 3)//izquierda
+                    {
+                        StartCoroutine(movimientos(3));
+                        yield return new WaitForSeconds(vel_mov);
+                    }
+                    else if (brandom == 4)//derecha
+                    {
+                        StartCoroutine(movimientos(4));
+                        yield return new WaitForSeconds(vel_mov);
+                    }
+                }
+            } while (brandom == n);
+                
+        }
+        else if (moves[n].collider != null && (moves[n].collider.gameObject.tag == "Migajas1" || moves[n].collider.gameObject.tag == "Migajas2"))
+        {
+            if(banMigajas == 0)
+            {// se mete al camino de migajas y lo sigue hacia los huesos si es que hay
 
+            }
+            else if (banMigajas == 1)
+            {// ya tiene una carga de migajas y se regresa por el camino de migajas
+
+            }
+            else if(banMigajas == 2)
+            {//llego a la nave y entonces se regresa por el camino de migajas a buscar mas huesitoss
+
+            }
+            if (n == 1)//arriba
+            {
+                StartCoroutine(md.movArriba());
+                y_p -= 1;
+            }
+            else if (n == 2)//abajo
+            {
+                StartCoroutine(md.movAbajo());
+                y_p += 1;
+            }
+            else if (n == 3)//izquierda
+            {
+                StartCoroutine(md.movIzquierda());
+                x_p -= 1;
+            }
+            else if (n == 4)//derecha
+            {
+                StartCoroutine(md.movDerecha());
+                x_p += 1;
+            }
+        }
     }
 
 
